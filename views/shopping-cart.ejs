@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shopping-cart</title>
+<link rel="stylesheet"  href="/css/bootstrap.min.css">
+<script src ="/js/bootstrap.min.js"></script>
+<script src="/js/jquery-2.2.4.js"></script>
+</head>
+<body>
+<%include header%>
+<%if(session.cart == null){%>
+<div class ="row">
+	<div class = "col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+		<h2>Bạn chưa chọn sản phẩm nào!!!</h2>
+	</div>
+</div>
+	<%} else{%>
+	<div class = "row">
+	<div class = "col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3>
+		<ul class = "list-group">
+		<% products.forEach(function(p){ %>
+			<li class = "list-group-item">
+				<span class ="badge"><%=p.qty%></span>
+				<strong><%=p.item.title%></strong>
+				<span class = "label label-success"><%=p.price%></span>
+				<div class ="btn btn-primary btn-xs dropdown-toggle" type="button">Action<span class ="caret"></span>
+				<ul class ="dropdown-menu">
+					<li><a href="#">Reduce by 1</a></li>
+					<li><a href="#">Reduce all</a></li>
+				</ul>
+				</div>
+			</li>
+			
+		<%})%>
+		</ul>
+	</div>
+</div>
+<div class ="row">
+	<div class = "col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+		<strong>Total: <%=totalPrice%></strong>
+	</div>
+</div>
+<div class ="row">
+	<div class = "col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+		<a href ="<%if(session.chklog == 3){%>/login<%}else{%>/checkout<%}%>" type="button" class ="btn btn-success">Checkout</a>
+	</div>
+</div>
+<%}%>
+
+</body>
+</html>

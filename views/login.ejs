@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet"  href="/css/bootstrap.min.css">
+    <script src ="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery-2.2.4.js"></script>
+   
+</head>
+<body>
+<%include header%>
+<div class="container">
+<h4>Đăng nhập với tài khoản admin hoặc user</h4>
+<div class="col-md-4 col-md-offset-4">
+
+    <h1 class="text-center">Login</h1>
+    <form action="/login" method="post">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control" name="email">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password">
+        </div>
+        
+        <button type="submit" class="btn btn-success pull-right">Login</button>
+    </form>
+</div>
+
+
+</body>
+</html>
